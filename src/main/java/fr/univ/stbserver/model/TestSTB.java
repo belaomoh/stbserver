@@ -9,17 +9,21 @@ import org.springframework.core.io.DefaultResourceLoader;
 
 public class TestSTB {
 	
-	public String loadFileXML() throws IOException{
-		StringBuilder message = new StringBuilder();
-		org.springframework.core.io.Resource resource;
-		
-		resource = new DefaultResourceLoader().getResource("classpath:xml/smallSTB.xml");
+	StringBuilder message;
+	org.springframework.core.io.Resource resource ;
+	
+	public StringBuilder loadFileXML() throws IOException{
+		 StringBuilder message = new StringBuilder();
+		resource = new DefaultResourceLoader().getResource("classpath:smallSTB.xml");
+
 		InputStream is = resource.getInputStream();
-		BufferedReader br = new BufferedReader(new InputStreamReader(is));
-		
-		while(br.readLine() != null) {
-			message.append(br.readLine());
+        BufferedReader br = new BufferedReader(new InputStreamReader(is)); 
+		String line = br.readLine();
+		while( line != null){ 
+			message.append(line).append("\n"); 
+			line = br.readLine(); 
 			}
-		return message.toString();
+		
+		return message;
 		
 	}}

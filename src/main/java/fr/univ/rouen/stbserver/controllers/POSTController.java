@@ -27,9 +27,9 @@ public class POSTController {
 	
 	@PostMapping(value = "/poststb", produces = MediaType.APPLICATION_XML_VALUE)
 	@ResponseBody
-	public String postSTB() throws IOException {
-		TestSTB stb = new TestSTB();
-		return stb.loadFileXML();
+	public StringBuilder postSTB() throws IOException {
+	TestSTB stb = new TestSTB();
+	return stb.loadFileXML();
 	}
 	@RequestMapping(value = "/xml")
 	public @ResponseBody STB getXML() {
